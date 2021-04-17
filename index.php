@@ -1,6 +1,5 @@
 <?php
 echo "
-<
 <head>
   <title>Alexandru Robert Lazar</title>
 </head>
