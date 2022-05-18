@@ -481,17 +481,6 @@ a {
     text-decoration: underline !important
 }
 
-.cabecera {
-    float: left;
-    text-align: left;
-    width: 100%;
-    height: 90px;
-    background-image: url("../Graphics/banner.png");
-    background-repeat: no-repeat;
-    margin-top: 40px;
-    margin-bottom: 10px
-}
-
 .cabeceraIATEXT {
     float: left;
     text-align: left;
@@ -502,45 +491,6 @@ a {
     background-position-y: center;
     padding-top: 30px;
     margin-top: 40px
-}
-
-.linkCabecera {
-    position: absolute;
-    top: 60px;
-    width: 550px;
-    height: 70px
-}
-
-.divFacebookYBanderas {
-    float: right;
-    padding-top: 20px;
-    right: 0;
-    width: 110px
-}
-
-.facebook {
-    float: right;
-    width: 30px;
-    height: 25px;
-    background-image: url("../Graphics/facebook25.png");
-    background-repeat: no-repeat
-}
-
-.instagram {
-    margin-top: -2px;
-    float: right;
-    width: 35px;
-    height: 30px;
-    background-image: url("../Graphics/instagram25.png");
-    background-repeat: no-repeat
-}
-
-.youtube {
-    float: right;
-    width: 45px;
-    height: 25px;
-    background-image: url("../Graphics/youtube25.png");
-    background-repeat: no-repeat
 }
 
 .divBanderas {
@@ -569,59 +519,7 @@ a {
     color: #3f51b5
 }
 
-.encuesta label {
-    margin-left: 5px;
-    letter-spacing: 1px
-}
-
-.encuesta2 {
-    margin-left: 20px
-}
-
-#MainContent_IDEncuesta {
-    padding: 6px
-}
-
-.ultimasPalabras {
-    text-align: left;
-    padding-top: 10px;
-    padding-right: 20px;
-    list-style-type: disc;
-    font-size: small;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #3f51b5;
-    letter-spacing: .1em
-}
-
-@media screen and (max-width: 990px) {
-    .cabecera {
-        background-image: url("../Graphics/banner760.png")
-    }
-
-    .linkCabecera {
-        top: 50px;
-        width: 400px;
-        height: 60px
-    }
-
-    .divFacebookYBanderas {
-        padding-top: 10px
-    }
-
-    .youtube {
-        margin-top: 2px;
-        width: 40px
-    }
-}
-
 @media only screen and (max-width: 770px) {
-    .divFacebookYBanderas {
-        width: 80px
-    }
-
-    .divBanderas {
-        padding-top: 60px
-    }
 
     .cabeceraIATEXT {
         background-image: url("../Graphics/iatext.png");
@@ -630,31 +528,9 @@ a {
 }
 
 @media screen and (max-width: 475px) {
-    .cabecera {
-        background-image: url("../Graphics/banner500.png")
-    }
-
-    .linkCabecera {
-        top: 50px;
-        width: 350px;
-        height: 50px
-    }
-
     *:focus {
         outline: none;
         background: transparent
-    }
-
-    .enlacesAplicaciones {
-        letter-spacing: 0
-    }
-
-    .enlacesAplicaciones u {
-        padding: 0 5px 0 5px
-    }
-
-    .enlacesAplicaciones a {
-        padding: 0 5px 0 5px
     }
 }
 
@@ -753,48 +629,6 @@ a {
     }
 }
 
-.titulo {
-    color: #fff;
-    background-color: #3f51b5;
-    font-size: 1.4rem;
-    text-align: center;
-    margin-top: 25px;
-    border-radius: .75rem;
-    padding: 5px;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Comic Sans MS", cursive, sans-serif
-}
-
-.titulo h1 {
-    font-size: 1.4rem
-}
-
-@media only screen and (min-width: 769px) {
-    #divButtonWhatsapp {
-        display: none
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    #divButtonWhatsapp {
-        border-radius: .5rem;
-        background-color: #fff;
-        position: fixed;
-        right: 25px;
-        bottom: 25px;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, .1), 1px 3px 7px rgba(0, 0, 0, .1)
-    }
-
-    #divButtonWhatsapp .whatsappBtn {
-        height: 100%;
-        color: #3f51b5
-    }
-
-    #divButtonWhatsapp .whatsappBtn:focus {
-        outline: 0;
-        box-shadow: none
-    }
-}
-
 .card {
     border-radius: .75rem;
     overflow: hidden;
@@ -813,31 +647,6 @@ a {
     padding-right: 10px;
     border-bottom: 1px solid #f7f7f7;
     background-color: #e6e6e6
-}
-
-.card .card-header.titulo_tarjeta_conjugacion {
-    min-height: 66px;
-    padding-bottom: 5px
-}
-
-.card .card-header.titulo_tarjeta_conjugacion h5 {
-    padding: 5px;
-    color: #3f51b5;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Comic Sans MS", cursive, sans-serif;
-    font-size: 1.4em;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-align: center;
-    margin: 0 15px;
-    margin-bottom: 0;
-    line-height: 130%;
-    font-size: 1.15rem
-}
-
-@media only screen and (max-width: 768px) {
-    .card .card-header.titulo_tarjeta_conjugacion {
-        min-height: unset
-    }
 }
 
 .card .card-header .iconosTit {
@@ -877,151 +686,16 @@ a {
     float: right
 }
 
-.card.InfoAdicional p {
-    font-family: "Roboto", sans-serif;
-    margin-bottom: .5rem;
-    padding: 0 5px 0 5px
-}
-
-.card.InfoAdicional #NotaInfinitivo b {
-    color: #3f51b5;
-    font-weight: 500
-}
-
-.card.InfoAdicional #collapseNotas a {
-    color: #495057
-}
-
-.card.InfoAdicional #collapseNotas b {
-    color: #3f51b5
-}
-
-.card.InfoAdicional .InfoAdicionalFlexionYReconocimiento>b,
-.card.InfoAdicional .InfoAdicionalFlexionYReconocimiento>i.fas,
-.card.InfoAdicional #InfoAdicionalCatGramatical>b,
-.card.InfoAdicional #InfoAdicionalCatGramatical>i.fas {
-    color: #3f51b5
-}
-
-.card.InfoAdicional #InfoAdicionalFuentes,
-.card.InfoAdicional #InfoAdicionalOtrosVerbos {
-    margin-top: 1rem;
-    background-color: #e6e6e6;
-    border-radius: .5rem;
-    padding: 5px 10px
-}
-
-.card.InfoAdicional #InfoAdicionalFuentes>b,
-.card.InfoAdicional #InfoAdicionalOtrosVerbos>b {
-    color: #3f51b5
-}
-
-.card.InfoAdicional #InfoAdicionalOtrosVerbos font b {
-    font-weight: 400
-}
-
-.card.InfoAdicional #InfoAdicionalOtrosVerbos font b a {
-    color: #495057
-}
-
-.card.InfoAdicional #collapseNotas div.form-check {
-    position: relative;
-    display: block;
-    padding-left: 1.25rem
-}
-
-.card.InfoAdicional #collapseNotas div.form-check .form-check-input {
-    position: absolute;
-    margin-top: .3rem;
-    margin-left: -1.25rem
-}
-
-.card.InfoAdicional #collapseNotas div.form-check .form-check-label {
-    margin-left: 5px
-}
-
-.card.InfoAdicional #collapseNotas div.form-check:last-of-type {
-    margin-bottom: 15px
-}
-
-.card.InfoAdicional #collapseNotas div.form-check input[type="checkbox"] {
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 0
-}
-
-.card.InfoAdicional #collapseNotas div.form-check input[type=checkbox]:checked~label:before {
-    transform: translate(-50%, -50%) scale3d(50, 5, 1);
-    opacity: 1
-}
-
-.card.InfoAdicional #collapseNotas div.form-check input[type=checkbox]:checked~label:after {
-    content: '';
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    color: #e74c3c;
-    font-size: 18px;
-    left: 0;
-    position: absolute;
-    top: -2px;
-    background-color: #fff;
-    cursor: pointer
-}
-
 .card.buscador {
     z-index: 1;
     margin-top: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, .1), 2px 2px 7px rgba(0, 0, 0, .1)
 }
 
-.card.buscador .botonLetras {
-    margin-left: 5px;
-    background-color: unset;
-    border: 1px solid #3f51b5;
-    border-radius: .5rem;
-    padding: 5px;
-    color: #3f51b5;
-    width: 20px;
-    cursor: pointer
-}
-
-.card.buscador .botonLetras:hover {
-    border-color: #e74c3c;
-    background-color: #e6e6e6
-}
-
-.card.buscador .enlaceMenuNuevo {
-    display: inline-block
-}
-
-.card.buscador .enlaceMenuNuevo a {
-    padding: 5px
-}
-
-.card.buscador .enlaceMenuNuevo:first-child {
-    margin-right: 10px
-}
-
-.card.buscador .enlaceMenuNuevo:hover a {
-    background-color: #bfe7fe
-}
-
-.card.buscador #MainContent_idBuscar:focus,
-.card.buscador #MainContent_idLimpia:focus {
-    outline: none;
-    box-shadow: none
-}
-
 .card.buscador #MainContent_idBuscador {
     margin-bottom: 0;
     padding-bottom: 0;
     z-index: 5
-}
-
-.card.buscador #EnlacesBuscadorDiv {
-    border-top: 1px solid rgba(0, 0, 0, .125);
-    margin-top: 5px;
-    padding-top: 10px
 }
 
 .card.buscador .card-body {
@@ -1102,234 +776,6 @@ a {
     padding: 0
 }
 
-.card.resultado {
-    margin-top: 25px
-}
-
-.card.resultado .divTitulillo {
-    color: #3f51b5;
-    font-size: .9rem;
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    text-align: center;
-    visibility: hidden
-}
-
-@media only screen and (max-width: 768px) {
-    .card.resultado .divTitulillo {
-        visibility: visible
-    }
-}
-
-.card.resultado .card-body .card.formas_no_personales {
-    border: 1px solid #ced4da;
-    border-radius: .75rem
-}
-
-.card.resultado .card-body .card.formas_no_personales .card-header .participio {
-    color: #495057;
-    font-size: 1rem
-}
-
-.card.resultado .card-body .card.formas_no_personales .card-body {
-    padding: 5px 10px;
-    background-color: rgba(0, 0, 0, .03)
-}
-
-.card.resultado .card-body .card.formas_no_personales .card-body h5 {
-    padding: 5px;
-    color: #3f51b5;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Comic Sans MS", cursive, sans-serif;
-    font-size: 1.4em;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-align: center;
-    margin: 0 15px;
-    margin-bottom: 0;
-    line-height: 130%;
-    font-size: 1.15rem;
-    text-align: right;
-    margin-right: 0;
-    padding-top: 0
-}
-
-.card.resultado .card-body .card.formas_no_personales .card-body .forma {
-    padding-top: 2px
-}
-
-.card.resultado .card-body .card.formas_no_personales.participio .card-body {
-    padding-bottom: 12.5px
-}
-
-.card.resultado .card-body .card.formas_no_personales .forma {
-    padding-left: 25px
-}
-
-.card.resultado .card-body .card.formas_no_personales i.fas,
-.card.resultado .card-body .card.formas_no_personales i.far {
-    display: none;
-    color: #3f51b5;
-    padding-top: 5px;
-    padding-left: 5px
-}
-
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover {
-    background-color: #e3ebff;
-    border-radius: .25rem;
-    color: #e74c3c;
-    font-weight: 700;
-    padding-left: 5px;
-    flex-grow: 5
-}
-
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover i.fas,
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover i.far {
-    display: initial
-}
-
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover .freqCREA,
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover .pron_pers,
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover .pron_rela,
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover .negado,
-.card.resultado .card-body .card.formas_no_personales .impersonal:hover .pronombre {
-    display: none
-}
-
-.card.resultado .card-body.conjugacion p:hover {
-    background-color: #e3ebff;
-    border-radius: .25rem;
-    color: #e74c3c;
-    font-weight: 700
-}
-
-.card.resultado .card-body.conjugacion p:hover i.fas,
-.card.resultado .card-body.conjugacion p:hover i.far {
-    display: initial
-}
-
-.card.resultado .card-body.conjugacion p:hover .freqCREA,
-.card.resultado .card-body.conjugacion p:hover .pron_pers,
-.card.resultado .card-body.conjugacion p:hover .pron_rela,
-.card.resultado .card-body.conjugacion p:hover .negado,
-.card.resultado .card-body.conjugacion p:hover .pronombre {
-    display: none
-}
-
-.card.resultado .card-body p {
-    font-family: "Roboto", sans-serif;
-    margin-bottom: .5rem;
-    padding: 0 5px 0 5px;
-    border-radius: .25rem
-}
-
-.card.resultado .card-body p i.fas,
-.card.resultado .card-body p i.far {
-    display: none;
-    color: #3f51b5;
-    padding-top: 5px;
-    padding-left: 5px
-}
-
-.card.resultado .card-body .card {
-    margin-bottom: 10px
-}
-
-.card.resultado .card-body .pron_pers {
-    color: gray
-}
-
-.card.resultado .card-body .pron_rela {
-    color: #5564b6
-}
-
-.card.resultado .card-body .freqCREA {
-    float: right;
-    color: gray;
-    font-style: italic;
-    font-size: 80%
-}
-
-.card.resultado .card-body.tiposConjugacion {
-    padding-bottom: .2rem;
-    padding-top: .2rem
-}
-
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion {
-    text-align: justify;
-    padding-right: 0
-}
-
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral b,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion b {
-    color: #3f51b5
-}
-
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionClasica,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionVoseo,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionUstedes,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionFormal,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionClasica,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionVoseo,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionUstedes,
-.card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionFormal {
-    margin-right: 20px
-}
-
-@media only screen and (max-width: 770px) {
-
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionClasica ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionVoseo ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionUstedes ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacionGeneral #collapseTiposConjugacionFormal ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionClasica ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionVoseo ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionUstedes ul,
-    .card.resultado .card-body.tiposConjugacion #collapseTiposConjugacion #collapseTiposConjugacionFormal ul {
-        padding-left: 15px
-    }
-}
-
-.card.resultado .tiposConjugacionInicial {
-    margin-left: 15px;
-    margin-right: 15px
-}
-
-.card.resultado .tiposConjugacionInicial .card-header {
-    padding: 0
-}
-
-.card.resultado .tiposConjugacionInicial .card-header .card-title {
-    margin: .5rem
-}
-
-.card.resultado .tiposConjugacionInicial .card-body {
-    padding: .5rem .5rem .5rem 1rem
-}
-
-.card.resultado .tiposConjugacionInicial ul {
-    padding-left: 15px;
-    margin-bottom: 0
-}
-
-.card.resultado .tiposConjugacionInicial b {
-    color: #3f51b5
-}
-
-@media only screen and (max-width: 576px) {
-    .card.resultado .tiposConjugacionInicial .col-12 {
-        padding-left: 5px;
-        padding-right: 5px;
-        flex: 0 0 50%;
-        max-width: 50%
-    }
-
-    .card.resultado .tiposConjugacionInicial .col-12 .card-body {
-        padding-left: .5rem
-    }
-}
-
 .card.tarjeta.pie {
     margin-bottom: 70px;
     margin-top: 10px;
@@ -1359,10 +805,6 @@ a {
     float: right;
     display: flex;
     flex-grow: 1
-}
-
-.card #listaVerbosConNota a {
-    color: #495057
 }
 
 .card.no-reconocido {
