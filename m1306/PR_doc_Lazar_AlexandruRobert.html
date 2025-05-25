@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PR - M1.306 Plataformas de publicación y distribución</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            margin: 40px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        section {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        ul,
+        ol {
+            margin-top: 10px;
+        }
+
+        .biblio {
+            font-size: 0.98em;
+        }
+
+        .contenedor-ilustracion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .imagen-ilustracion {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 10px auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>PR - M1.306 Plataformas de publicación y distribución</h1>
+    <p><strong>Alexandru Robert Lazar</strong></p>
+
+    <section>
+        <h2>Ejercicio 1: Clip de vídeo incrustado en HTML 5</h2>
+
+        <h3>Tarea 1.1.</h3>
+        <p>
+            Para realizar este ejercicio, se va a aprovechar el vídeo creado para la PEC2, que contenía detalles y fue
+            realizado en movimiento. Por tanto, como referencia, se toma el fichero original, generado desde el móvil,
+            en formato MOV.
+        </p>
+        <p>
+            Observando la tabla <a href=#biblio-1>[1]</a>, es evidente que elegir H.265 no sería muy factible, ya que tiene muy poca
+            compatibilidad con navegadores y, por otra parte, parecería una opción inmediata elegir el formato H.264
+            para obtener la compatibilidad máxima de navegadores. Sin embargo, analizando la información dada por <a href=#biblio-2>[2]</a>,
+            podemos notar una opción interesante, que ofrece muy buena compatibilidad con navegadores y, a la vez,
+            ofrece mejor compresión que H.264: VP9. La falta de compatibilidad con Internet Explorer es una pequeña
+            desventaja, pero no es algo problemático considerando su bajo uso, contando con una cuota de mercado del
+            0,15% en 2024 (lo cual se puede ver descargando el CSV disponible en <a href=#biblio-3>[3]</a>). Por tanto, se puede optar por
+            utilizar VP9 para comprimir el vídeo, puesto que tiene un buen equilibrio entre compresión y compatibilidad
+            con navegadores.
+        </p>
+        <p>
+            Por otra parte, utilizar AV1 puede llegar a ser contraproducente, ya que, aún siendo mejor que VP9 para
+            comprimir, no tiene tanta compatibilidad de dispositivos <a href=#biblio-4>[4]</a>.
+        </p>
+        <p>
+            Para hacer el codificado, se han empleado los siguientes ajustes:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion1.png" alt="Configuración del codificador" class="imagen-ilustracion">
+            <span>Ilustración 1: Configuración del codificador</span>
+            <img src="ilustracion2.png" alt="Configuración de Avidemux" class="imagen-ilustracion">
+            <span>Ilustración 2: Configuración de Avidemux</span>
+        </div>
+        <p>
+            Se ha elegido hacerlo en dos pasadas para mejorar calidad manteniendo la tasa de bits; una tasa de bits de
+            5000 kbps para mantener cierta calidad y, a la vez, ofrecer la posibilidad de que los usuarios puedan verlo
+            con una conexión de más baja velocidad; el tamaño de GOP por defecto, ya que no es un vídeo pensado tanto
+            para “saltarse” partes; la salida de vídeo VP9, como se ha mencionado; salida de audio Vorbis, ya que es
+            compatible con el contenedor WebM; y contenedor WebM, ya que, aunque tiene compatibilidad con otros
+            contenedores, al haberse desarrollado por el WebM Project, se puede dar por hecho que está más pensado para
+            este tipo de contenedor <a href=#biblio-5>[5]</a>.
+        </p>
+        <p>
+            Observando ahora la información de MediaInfo, podemos afirmar que se ha codificado a la tasa de bits
+            deseada, aproximadamente:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion3.png" alt="Información de MediaInfo para el fichero video.webm" class="imagen-ilustracion">
+            <span>Ilustración 3: Información de MediaInfo para el fichero “video.webm”</span>
+        </div>
+        <h3>Tarea 1.2</h3>
+        <p>
+            La implementación más sencilla para ello sería la siguiente:
+        </p>
+        <pre>
+<code>&lt;video&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+&lt;/video&gt;</code></pre>
+        <p>
+            Sin embargo, no tiene controles, ni tiene un tamaño más limitado. La característica principal de HTML5 es
+            que no requiere plugins externos para ver los vídeos y ofrece máxima compatibilidad; anteriormente, era muy
+            habitual utilizar Adobe Flash Player para visualizar vídeos, lo cual requería su instalación y
+            configuración. El soporte de este plugin, a causa del uso de HTML5, finalizó en 2021 <a href=#biblio-6>[6]</a>.
+        </p>
+
+        <h3>Tarea 1.3</h3>
+        <p>
+            Se puede encontrar el HTML con el vídeo en <a href=#biblio-7>[7]</a>. Se observa un bajo retraso de visualización y una buena
+            calidad, aunque, como se ha mencionado en la tarea anterior, no tiene controles ni un tamaño aún; ello se
+            introducirá en la siguiente tarea.
+        </p>
+
+        <h3>Tarea 1.4</h3>
+        <p>
+            Se ha actualizado el fichero html, quedando de la siguiente manera:
+        </p>
+        <pre>
+<code>&lt;video width=270 height=480 controls autoplay muted loop&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    Your browser does not support the video tag.
+&lt;/video&gt;</code></pre>
+        <p>
+            De esta forma, ya el usuario puede controlar el vídeo, que tiene un tamaño más reducido y fácil de ver, y
+            que se reproducirá automáticamente (muteado) una vez se cargue, en bucle.
+        </p>
+        <p>
+            Nótese que, para que autoplay funcione, es necesario que el vídeo sea muteado por defecto <a href=#biblio-8>[8]</a>.
+        </p>
+
+        <h3>Tarea 1.5</h3>
+        <p>
+            Observamos numerosos servicios adicionales que ofrecen los CDN. En este caso, nos centraremos en las
+            posibilidades que ofrece AWS.
+        </p>
+        <p>
+            Como se menciona en el enunciado, un ejemplo de servicio que ofrece AWS es Amazon Transcribe, para
+            generación de subtítulos <a href=#biblio-9>[9]</a>. Sin embargo, aprovechando este servicio para generación de una transcripción,
+            podemos traducirla con Amazon Translate <a href=#biblio-10>[10]</a>, pasársela a Amazon Polly <a href=#biblio-11>[11]</a> y generar doblajes de forma
+            automática.
+        </p>
+        <p>
+            Otro ejemplo visto en el enunciado es el de detección de caras; para ello, AWS cuenta con Amazon Rekognition
+            <a href=#biblio-12>[12]</a> que, además de lo visto en el ejemplo, permite también detectar texto (por ejemplo, para detectar
+            corredores mediante su dorsal), segmentos relevantes de vídeo (como los créditos finales), e incluso objetos
+            u escenas, que puede servir para analizar el entorno de un vídeo o una imagen.
+        </p>
+        <p>
+            Además de los vistos anteriormente, AWS ofrece la posibilidad de extraer piezas relevantes de un vídeo de
+            forma automática; más allá de identificar los segmentos relevantes vistos anteriormente, mediante IA, puede
+            generar clips relevantes para eventos deportivos <a href=#biblio-13>[13]</a>.
+        </p>
+        <p>
+            Por último, siempre podemos generar código para ser ejecutado en Lambda@Edge <a href=#biblio-14>[14]</a>, que permite, por ejemplo,
+            optimizar imágenes o vídeos en función del dispositivo, personalizar anuncios, o insertar marcas de agua,
+            entre otros casos.
+        </p>
+        <p>
+            Si bien es cierto que estos servicios no están directamente en CloudFront, visto en las PEC anteriores, sí
+            que se pueden integrar de forma sencilla con este, permitiendo que se ofrezcan aprovechando sus ventajas.
+        </p>
+    </section>
+
+    <section>
+        <h2>Ejercicio 2: Práctica de streaming de un vídeo local</h2>
+
+        <h3>Tarea 2.1.</h3>
+        <p>
+            Para la realización de este ejercicio se ha utilizado el vídeo de <a href=#biblio-15>[15]</a>. Tras codificarlo utilizando los
+            pasos descritos, podemos confirmar con MediaInfo que se ha codificado de la forma esperada:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion4.png" alt="Información de MediaInfo sobre la pista de vídeo de clip01.mkv"
+                class="imagen-ilustracion">
+            <span>Ilustración 4: Información de MediaInfo sobre la pista de vídeo de clip01.mkv</span>
+        </div>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion5.png" alt="Información de MediaInfo sobre la pista de audio de clip01.mkv"
+                class="imagen-ilustracion">
+            <span>Ilustración 5: Información de MediaInfo sobre la pista de audio de clip01.mkv</span>
+        </div>
+        <h3>Tarea 2.2.</h3>
+        <p>
+            Tras configurar la emisión repetitiva, siguiendo los pasos descritos en la práctica, obtenemos el siguiente
+            resultado:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion6.png" alt="Emisión y recepción del vídeo en las dos instancias de VLC" class="imagen-ilustracion">
+            <span>Ilustración 6: emisión y recepción del vídeo en las dos instancias de VLC</span>
+        </div>        
+        <p>
+            Accediendo a la ventana de información de códecs, vemos la información del códec de transmisión, lo cual nos
+            indica que se está codificando a H.264 la pista de vídeo, y a MP3 la de audio:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion7.png" alt="Detalles de códec del VLC emisor" class="imagen-ilustracion">
+            <span>Ilustración 7: Detalles de códec del VLC emisor</ºspan></div>
+        <p>
+            Y, observando las estadísticas, vemos que la tasa de bits de emisión ronda los 5000 kbps: hacia el principio
+            del vídeo, unos 4000 kbps, y hacia el final, unos 6000 kbps.
+        </p>
+
+        <h3>Tarea 2.3.</h3>
+        <p>
+            Observando los detalles del códec en el VLC receptor, vemos que es correcta la codificación:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion8.png" alt="Detalles del códec del VLC receptor" class="imagen-ilustracion">
+            <span>Ilustración 8: Detalles del códec del VLC receptor</span>
+        </div>
+        <p>
+            Y por otra parte, en las estadísticas, la tasa de bits de emisión es de, aproximadamente, 1200 kbps:
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion9.png" alt="Estadísticas del VLC receptor" class="imagen-ilustracion">
+            <span>Ilustración 9: Estadísticas del VLC receptor</span></div>
+        <h3>Tarea 2.4.</h3>
+        <p>
+            Tarda un poco más de un segundo. Por una parte, observamos que, por defecto, la caché de red de VLC está
+            configurada a 1000ms, por lo que, por un segundo, estará reproduciendo del búfer (nótese que esta
+            configuración de caché de red afecta al receptor, no al emisor) <a href=#biblio-16>[16]</a>, y, por otra parte, al haber
+            experimentado algo de mal rendimiento en mi entorno, ello conlleva que haya un poco más de latencia.
+        </p>
+        <div class="contenedor-ilustracion">
+            <img src="ilustracion10.png" alt="Caché de red en VLC" class="imagen-ilustracion">
+            <span>Ilustración 10: Caché de red en VLC</span></div>
+        <h3>Tarea 2.5.</h3>
+        <p>
+            Para realizar esta tarea, se va a describir el proceso para realizar streaming interactivo; en este caso,
+            mediante Amazon IVS <a href=#biblio-17>[17]</a>. Los pasos para empezar a utilizarlo se encuentran en <a href=#biblio-18>[18]</a>.
+        </p>
+        <p>
+            El primer paso, en caso de que no tengamos cuenta de AWS, es crearla, accediendo a <a href=#biblio-19>[19]</a> y seguir las
+            instrucciones. Una vez creada la cuenta, como segundo paso, se debe acceder a la consola AWS mediante la
+            URL de inicio de sesión recibida por e-mail y, como medida de seguridad, se debe proteger el usuario raíz,
+            para lo cual se accede al centro de identidades de IAM y, por una parte, se activa la autenticación MFA para
+            el mismo y, por otra, se crea un usuario administrativo, de tal forma que no se utilice el usuario raíz para
+            el día a día, siguiendo las indicaciones de <a href=#biblio-20>[20]</a>.
+        </p>
+        <p>
+            A continuación, como tercer paso, se deben configurar los permisos de IAM para los usuarios. En este caso,
+            hay dos políticas existentes por defecto: IVSReadOnlyAccess, que permite acceder a las API “Get” y “List”,
+            por lo que está pensada para operaciones de solo lectura; e IVSFullAccess, que otorga acceso a todas las
+            operaciones de API, incluyendo las de escritura. Sin perjuicio de ello, se pueden crear políticas
+            personalizadas, para lo cual la guía nos proporciona un JSON. Una vez tengamos la política creada, o hayamos
+            decidido usar alguna de las existentes, procedemos a crear un usuario y asignársela según lo descrito.
+        </p>
+        <p>
+            Luego, como cuarto paso, procedemos a crear un canal mediante la consola de Amazon IVS, para lo cual debemos
+            acceder a la misma, elegir una región y pulsar en el botón “Create Channel”, lo cual nos llevará a una
+            ventana que permitirá configurarlo. En este caso, aceptamos la configuración por defecto y activamos la
+            opción de “habilitar grabación automática” para poder grabar en él. A continuación, pulsamos en el botón
+            “Create recording configuration”, dejando la configuración por defecto, nuevamente, e introduciremos el
+            nombre que deseemos para la configuración de grabación, así como un nombre para el bucket de S3 que se va a
+            crear. Seleccionamos “Create recording configuration” para crear la configuración y, al volver a la ventana
+            de creación de canal, aparecerá dicha configuración seleccionada, marcada con estado activo y donde se verá
+            el bucket S3 generado. Por último, pulsamos en el botón de Crear canal, y ya lo tendremos creado; para ver
+            sus detalles, expandiremos la opción “Detalles”, de donde tomaremos nota de los valores de “servidor de
+            incorporación”, “clave de transmisión” y "URL de reproducción”.
+        </p>
+        <p>
+            Como quinto paso, para empezar a transmitir, la guía nos proporciona formas de hacerlo mediante la consola,
+            OBS Studio (SRT y RTMPS), o vídeo grabado con FFmpeg (RTMPS 0 SRT). Por mantener simplicidad, se describirá
+            el proceso para hacerlo por consola. Nuevamente accedemos a la consola de Amazon IVS, seleccionamos el canal
+            creado en el paso anterior, y seleccionamos la pestaña de Transmisión (la cual encontraremos bajo la sección
+            de Configuración general). A continuación, el navegador pedirá permisos de cámara y micrófono, los cuales
+            deberemos aceptar. Por último, en la pestaña de transmisión, elegimos los dispositivos de entrada para el
+            micrófono y la cámara, and pulsamos en “Comenzar a transmitir”. Una vez realizados estos pasos, ya estaremos
+            transmitiendo; para ver el streaming en directo, accedemos a la pestaña de "Reproducción”.
+        </p>
+        <p>
+            Por tanto, una vez realizado los pasos anteriores, ya tendremos un canal configurado, y la posibilidad de
+            transmitir en él. Como pasos adicionales, es recomendable revisar los límites de espectadores y
+            transmisiones simultáneas, mediante lo descrito en <a href=#biblio-21>[21]</a>, y gestionar el contenido y espectadores no deseados
+            mediante los pasos vistos en <a href=#biblio-22>[22]</a>.
+        </p>
+        <p>
+            Para hacer el streaming interactivo, utilizamos metadatos cronometrados, que aseguran que todos los
+            reproductores los reciban a la vez, mediante sincronización con fotogramas <a href=#biblio-23>[23]</a>. Podemos encontrar ejemplos
+            de metadatos interactivos, como estadísticas de jugadores, detalles de un producto (ad placements) o
+            cuestionarios en directo, e incluso se proporcionan algunos ejemplos de uso del SDK para su uso en
+            reproductores.
+        </p>
+    </section>
+
+    <section class="biblio">
+        <h2>Bibliografía</h2>
+        <ol>
+            <li id="biblio-1"><a href="https://videojs.com/html5-video-support/" target="_blank">VideoJS, «HTML5 Video Support by
+                    Codec,»</a> [Último acceso: 15 Mayo 2025].</li>
+            <li id="biblio-2"><a href="https://cloudinary.com/guides/video-formats/vp9-vs-h-264" target="_blank">Cloudinary, «VP9 vs.
+                    H.264,»</a> [Último acceso: 15 Mayo 2025].</li>
+            <li id="biblio-3"><a href="https://gs.statcounter.com/browser-market-share/desktop/worldwide/#yearly-2020-2025"
+                    target="_blank">StatCounter, «Desktop Browser Market Share Worldwide | 2020 - 2025,»</a> [Último
+                acceso: 15 Mayo 2025].</li>
+            <li id="biblio-4"><a href="https://www.muvi.com/blogs/vp9-vs-av1" target="_blank">R. Milan, «VP9 vs AV1: Which Video Codec
+                    Offers Superior Performance and Quality?,»</a> 05 Febrero 2025. [Último acceso: 15 Mayo 2025].</li>
+            <li id="biblio-5"><a href="https://developers.google.com/media/vp9?hl=es-419" target="_blank">Google Inc., «Descripción
+                    general de VP9,»</a> [Último acceso: 15 Mayo 2025].</li>
+            <li id="biblio-6"><a href="https://www.adobe.com/products/flashplayer/end-of-life-alternative.html" target="_blank">Adobe
+                    Inc., «Adobe Flash Player EOL General Information,»</a> 13 Enero 2021. [Último acceso: 15 Mayo
+                2025].</li>
+            <li id="biblio-7"><a href="https://alexandrurobertlazar.github.io/m1306/video_html5.html" target="_blank">A. R. Lazar,
+                    «Vídeo en HTML5,»</a> 15 Mayo 2025. [Último acceso: 15 Mayo 2025].</li>
+            <li id="biblio-8"><a href="https://www.w3schools.com/tags/att_video_autoplay.asp" target="_blank">W3Schools, «HTML
+                    &lt;video&gt; autoplay Attribute,»</a> [Último acceso: 15 Mayo 2025].</li>
+            <li id="biblio-9"><a href="https://aws.amazon.com/es/transcribe/" target="_blank">Amazon Web Services, «Amazon
+                    Transcribe,»</a> [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-10"><a href="https://aws.amazon.com/es/translate/" target="_blank">Amazon Web Services, «Amazon
+                    Translate,»</a> [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-11"><a href="https://aws.amazon.com/es/polly/" target="_blank">Amazon Web Services, «Amazon Polly,»</a>
+                [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-12"><a href="https://aws.amazon.com/es/rekognition/" target="_blank">Amazon Web Services, «Amazon
+                    Rekognition,»</a> [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-13"><a href="https://aws.amazon.com/es/blogs/media/how-infosys-reimagines-the-game-of-tennis-using-aws/"
+                    target="_blank">S. Kumar, «How Infosys reimagines the game of tennis using AWS,»</a> [Último acceso:
+                25 Mayo 2025].</li>
+            <li id="biblio-14"><a href="https://aws.amazon.com/es/lambda/edge/" target="_blank">Amazon Web Services, «Lambda@Edge,»</a>
+                [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-15"><a href="https://www.youtube.com/watch?v=QLwb11eeX8w" target="_blank">Radoslav, «The greatest 20 seconds
+                    of football you will ever see in your life,»</a> 1 Octubre 2018. [Último acceso: 21 Mayo 2025].</li>
+            <li id="biblio-16"><a href="https://www.softzone.es/programas/multimedia/aumentar-bufer-vlc/" target="_blank">R. Velasco,
+                    «Solucionar cortes y saltos en VLC: cómo aumentar el búfer,»</a> 15 Abril 2025. [Último acceso: 25
+                Mayo 2025].</li>
+            <li id="biblio-17"><a href="https://aws.amazon.com/es/ivs/" target="_blank">Amazon Web Services, «Amazon Interactive Video
+                    Service,»</a> [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-18"><a href="https://docs.aws.amazon.com/es_es/ivs/latest/LowLatencyUserGuide/getting-started.html"
+                    target="_blank">Amazon Web Services, «Introducción al streaming de baja latencia de IVS,»</a>
+                [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-19"><a href="https://portal.aws.amazon.com/billing/signup" target="_blank">Amazon Web Services, «Página de
+                    registro de AWS,»</a> [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-20"><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html"
+                    target="_blank">Amazon Web Services, «Getting started with IAM Identity Center,»</a> [Último acceso:
+                25 Mayo 2025].</li>
+            <li id="biblio-21"><a href="https://docs.aws.amazon.com/es_es/ivs/latest/LowLatencyUserGuide/service-quotas.html"
+                    target="_blank">Amazon Web Services, «IVS Service Quotas | Transmisión de baja latencia,»</a>
+                [Último acceso: 25 Mayo 2025].</li>
+            <li id="biblio-22"><a href="https://docs.aws.amazon.com/es_es/ivs/latest/LowLatencyUserGuide/undesired-content.html"
+                    target="_blank">Amazon Web Services, «Contenido y espectadores no deseados en IVS,»</a> [Último
+                acceso: 25 Mayo 2025].</li>
+            <li id="biblio-23"><a href="https://docs.aws.amazon.com/es_es/ivs/latest/LowLatencyUserGuide/metadata.html"
+                    target="_blank">Amazon Web Services, «Incorporación de metadatos en una transmisión de video,»</a>
+                [Último acceso: 25 Mayo 2025].</li>
+        </ol>
+    </section>
+</body>
+
+</html>
